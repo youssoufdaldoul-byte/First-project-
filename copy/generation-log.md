@@ -30,10 +30,24 @@
 ## Crédits
 - Départ : 272 · Hero : −7 · **Restant : 265**
 
-## Blocage réseau (résolu par session neuve)
-- Le CDN `d8j0ntlcm91z4.cloudfront.net` était refusé par la politique d'egress.
-- L'autorisation a été ajoutée mais **n'est prise en compte que par une session démarrée après**.
-- Dans une nouvelle session : tester d'abord `curl -sS -o /dev/null -w "%{http_code}" <url_hero>` ; si `200`, enchaîner les téléchargements.
+## Blocage réseau (NON résolu — vérifié 2026-07-04, session postérieure)
+- Le CDN `d8j0ntlcm91z4.cloudfront.net` est **toujours refusé** par la politique d'egress
+  (403 côté proxy, tracé dans `recentRelayFailures`). L'hypothèse « une session ultérieure
+  débloque » **ne s'est pas confirmée** : cette session, plus récente, est encore bloquée.
+- Le serveur MCP Higgsfield n'expose **pas** les médias en lecture (seulement des widgets UI),
+  et il n'existe **aucun** outil de téléchargement local → le seul chemin vers les octets
+  est ce CDN bloqué. Impossible d'écrire les images dans `assets/images/` tant que c'est le cas.
+- **Action requise (utilisateur/admin)** : autoriser `d8j0ntlcm91z4.cloudfront.net`
+  (ou `*.cloudfront.net`) dans la politique réseau de l'environnement Claude Code web,
+  puis relancer une session. Réf. : https://code.claude.com/docs/en/claude-code-on-the-web
+- Test de reprise : `curl -sS -o /dev/null -w "%{http_code}" <url_hero>` ; si `200`,
+  télécharger d'abord le hero (job `9b72e3c4-85e4-4890-ae0b-df6b54cad7f3`, 0 crédit) pour
+  valider l'écriture locale, PUIS générer les 6 stills restantes.
+
+## Décision (2026-07-04) : GÉNÉRATION EN PAUSE
+- Gate A approuvée par l'utilisateur, mais mise en pause à cause du blocage CDN ci-dessus.
+- **0 crédit dépensé dans cette session. Solde : 265.** Aucune nouvelle image générée.
+- Reprise dès que l'accès CDN est autorisé.
 
 ## Ordre de reprise
 1. Test d'accès CDN (télécharger le hero → `assets/images/hero-burger.png`).
