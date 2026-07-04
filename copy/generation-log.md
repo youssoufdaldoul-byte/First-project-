@@ -30,10 +30,20 @@
 ## Crédits
 - Départ : 272 · Hero : −7 · **Restant : 265**
 
-## Blocage réseau (résolu par session neuve)
-- Le CDN `d8j0ntlcm91z4.cloudfront.net` était refusé par la politique d'egress.
-- L'autorisation a été ajoutée mais **n'est prise en compte que par une session démarrée après**.
-- Dans une nouvelle session : tester d'abord `curl -sS -o /dev/null -w "%{http_code}" <url_hero>` ; si `200`, enchaîner les téléchargements.
+## Blocage réseau (TOUJOURS bloqué — 2026-07-04)
+- Le CDN `d8j0ntlcm91z4.cloudfront.net` est refusé par la politique d'egress.
+- Hypothèse précédente (« une session neuve prendra l'autorisation en compte ») **infirmée** :
+  testé dans cette session neuve → toujours refusé.
+- Test effectué : `curl -sS -o /dev/null -w "%{http_code}" <url_hero fraîche>`
+  → `curl: (56) CONNECT tunnel failed, response 403` (HTTP 000, 0 octet).
+- Diagnostic proxy (`$HTTPS_PROXY/__agentproxy/status`) :
+  `connect_rejected` — `gateway answered 403 to CONNECT (policy denial or upstream failure)`
+  pour `d8j0ntlcm91z4.cloudfront.net:443`.
+- Conclusion : refus de **politique d'egress de l'organisation**, pas un problème TLS/CA.
+  Ne pas réessayer ni contourner (règle du proxy : 403/407 = signaler l'hôte, pas de retry).
+- **Action requise (hors session)** : ajouter `d8j0ntlcm91z4.cloudfront.net` (ou `*.cloudfront.net`)
+  à la liste d'autorisation d'egress de l'environnement, puis relancer une session.
+- Une fois débloqué : `curl … → 200`, puis enchaîner les téléchargements.
 
 ## Ordre de reprise
 1. Test d'accès CDN (télécharger le hero → `assets/images/hero-burger.png`).
