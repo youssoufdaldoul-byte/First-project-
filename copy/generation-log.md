@@ -16,19 +16,25 @@
 |---|---------|-----------------|--------|--------|
 | 1 | `assets/images/hero-burger.png` | image-prompts.md §1 (assemblé) | ✅ généré (à télécharger) | `9b72e3c4-85e4-4890-ae0b-df6b54cad7f3` |
 | 2 | `assets/images/exploded-burger-reference.png` | §2 (éclaté) + réf. hero par job_id | ⏳ à générer | — |
-| 3 | `assets/images/ingredients-detail.png` | macro ingrédients (voir image-prompts) | ⏳ | — |
-| 4 | `assets/images/catalog-classic-stack.png` | base catalogue — classic stack | ⏳ | — |
-| 5 | `assets/images/catalog-smoky-bacon.png` | base catalogue — smoky bacon | ⏳ | — |
-| 6 | `assets/images/catalog-spicy-lab.png` | base catalogue — spicy lab | ⏳ | — |
-| 7 | `assets/images/catalog-truffle-melt.png` | base catalogue — truffle melt | ⏳ | — |
+| 3 | `assets/images/ingredients-detail.png` | macro ingrédients (voir image-prompts) | ✅ généré (à télécharger) | `1aef7d17-9944-4b02-bc9c-09144a07b65a` |
+| 4 | `assets/images/catalog-classic-stack.png` | base catalogue — classic stack | ✅ généré (à télécharger) | `f2b7f484-b6b7-48f3-b445-edb2512a81a4` |
+| 5 | `assets/images/catalog-smoky-bacon.png` | base catalogue — smoky bacon | ✅ généré (à télécharger) | `7b61dd37-97db-4d27-8a95-60dc18cefbb5` |
+| 6 | `assets/images/catalog-spicy-lab.png` | base catalogue — spicy lab | ✅ généré (à télécharger) | `f43406f1-8743-4961-8f9a-78e0f57c9bce` |
+| 7 | `assets/images/catalog-truffle-melt.png` | base catalogue — truffle melt | ✅ généré (à télécharger) | `813a2588-2999-45bd-a9e3-d85fcad55395` |
 
 ## Hero déjà généré (ne pas régénérer)
 - job_id : `9b72e3c4-85e4-4890-ae0b-df6b54cad7f3`
 - dims : 2688×1520, 16:9, 2k, high
 - Récupérer une URL fraîche via l'outil MCP `job_display(id=…)` puis `curl` vers `assets/images/hero-burger.png`.
 
+## Catalogue + macro déjà générés — 2026-07-05 (ne pas régénérer)
+- 5 stills en `gpt_image_2`, 16:9, quality high, 2k, dims 2688×1520.
+- Descriptions selon brief utilisateur (burgers distincts), base visuelle commune (charcoal, warm side light, faint smoke, macro, no text/no people/no hands).
+- Récupérer une URL fraîche via `job_display(id=…)` puis `curl` vers le chemin exact (CDN à débloquer d'abord — voir section réseau).
+- Reste à générer : #2 exploded (`exploded-burger-reference.png`), à référencer le hero par job_id.
+
 ## Crédits
-- Départ : 272 · Hero : −7 · **Restant : 265**
+- Départ : 272 · Hero : −7 · Catalogue+macro (5 × −7 = −35) · **Restant : 230**
 
 ## Blocage réseau (TOUJOURS bloqué — 2026-07-04)
 - Le CDN `d8j0ntlcm91z4.cloudfront.net` est refusé par la politique d'egress.
