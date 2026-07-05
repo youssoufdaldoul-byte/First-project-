@@ -15,7 +15,7 @@
 | # | Fichier | Prompt (source) | Statut | job_id |
 |---|---------|-----------------|--------|--------|
 | 1 | `assets/images/hero-burger.png` | image-prompts.md §1 (assemblé) | ✅ généré (à télécharger) | `9b72e3c4-85e4-4890-ae0b-df6b54cad7f3` |
-| 2 | `assets/images/exploded-burger-reference.png` | §2 (éclaté) + réf. hero par job_id | ⏳ à générer | — |
+| 2 | `assets/images/exploded-burger-reference.png` | §2 (éclaté) + réf. hero par job_id | ✅ généré (à télécharger) | `e220371d-bce9-41da-8bec-38782921e619` |
 | 3 | `assets/images/ingredients-detail.png` | ingrédients éclatés verticaux (régénéré) | ✅ généré (à télécharger) | `d9351e66-21f0-4781-9f1d-b9767d758844` |
 | 4 | `assets/images/catalog-classic-stack.png` | base catalogue — classic stack | ✅ généré (à télécharger) | `f2b7f484-b6b7-48f3-b445-edb2512a81a4` |
 | 5 | `assets/images/catalog-smoky-bacon.png` | base catalogue — smoky bacon | ✅ généré (à télécharger) | `7b61dd37-97db-4d27-8a95-60dc18cefbb5` |
@@ -36,8 +36,17 @@
   nouveau job_id `d9351e66-21f0-4781-9f1d-b9767d758844`. Ancien tirage macro à plat abandonné
   (job `1aef7d17-9944-4b02-bc9c-09144a07b65a`, ne pas utiliser).
 
+## Gate B — Vidéo scroll-driven (2026-07-05)
+- Fichier cible : `assets/videos/burgerlab-scroll-background-raw.mp4` (à télécharger + committer par l'utilisateur).
+- job_id : `e47d39cf-0391-4f9d-882d-d4091770cc17` · type video.
+- Modèle : **seedance_2_0_mini** (repli — `seedance_2_0` requiert plan Pro/Ultimate, 403 sur starter).
+- Réglages : 12 s, 720p (1280×720), 16:9, bitrate high, audio off, genre auto.
+- Références : start_image=hero `9b72e3c4…`, end_image=exploded `e220371d…`, image_references=hero `9b72e3c4…`.
+- Concept : one-shot continu, Act 1 hero assemblé (push-in + orbit) → séparation verticale → Act 2 exploded, hold final.
+- Ne pas re-encoder, ne pas builder le site : en attente de review.
+
 ## Crédits
-- Départ : 272 · Hero : −7 · Catalogue+macro (5 × −7 = −35) · ingredients régénéré (−7) · **Restant : 223**
+- Départ : 272 · Hero : −7 · Catalogue+macro (5 × −7 = −35) · ingredients régénéré (−7) · exploded ref (−7) · vidéo Mini 12s (coût variable) · **Restant : ~216 avant coût vidéo — à confirmer**
 
 ## Blocage réseau (TOUJOURS bloqué — 2026-07-04)
 - Le CDN `d8j0ntlcm91z4.cloudfront.net` est refusé par la politique d'egress.
