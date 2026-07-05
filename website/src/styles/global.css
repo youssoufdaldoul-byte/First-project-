@@ -1,0 +1,151 @@
+@import './tokens.css';
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: auto; }
+
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  font-weight: 300;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.12;
+  margin: 0;
+  color: var(--text);
+}
+
+p { margin: 0; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; }
+img { max-width: 100%; display: block; }
+
+::selection { background: var(--amber); color: var(--bg); }
+
+.container {
+  width: min(var(--maxw), calc(100% - 48px));
+  margin-inline: auto;
+}
+
+/* ---------- primitives ---------- */
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.kicker::before {
+  content: "";
+  width: 34px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.7;
+}
+
+.h2 { font-size: var(--fs-h2); }
+.lead { color: var(--text-dim); max-width: 52ch; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 34px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: var(--amber);
+  color: #14100B;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: background 0.45s var(--ease), transform 0.45s var(--ease),
+    box-shadow 0.45s var(--ease), color 0.45s var(--ease), border-color 0.45s var(--ease);
+}
+.btn:hover {
+  background: var(--amber-2);
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px -18px rgba(201, 119, 46, 0.55);
+}
+
+.btn--ghost {
+  background: transparent;
+  border-color: rgba(242, 234, 217, 0.22);
+  color: var(--text);
+}
+.btn--ghost:hover {
+  border-color: var(--amber);
+  color: var(--amber-2);
+  background: rgba(201, 119, 46, 0.06);
+  box-shadow: none;
+}
+
+.section { padding: clamp(90px, 12vw, 150px) 0; position: relative; }
+
+/* reveal-on-scroll (initial state posé en CSS pour éviter les flashes) */
+.reveal { opacity: 0; transform: translateY(36px); will-change: opacity, transform; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* formes circulaires subtiles (fond catalog) */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle at 35% 30%, rgba(201, 119, 46, 0.10), transparent 65%);
+  filter: blur(2px);
+}
+
+/* contenu après le hero : recouvre le canvas fixe */
+.home__after { position: relative; background: var(--bg); }
+
+/* entête commun des pages routées */
+.page-head {
+  padding: calc(clamp(90px, 12vw, 150px) + 40px) 0 0;
+}
+.page-head .container { display: grid; gap: 16px; justify-items: start; }
+
+/* champs de formulaire */
+.field { display: grid; gap: 8px; }
+.field label {
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.field input, .field select, .field textarea {
+  background: rgba(14, 14, 15, 0.6);
+  border: 1px solid rgba(242, 234, 217, 0.14);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  padding: 14px 16px;
+  outline: none;
+  transition: border-color 0.35s var(--ease), box-shadow 0.35s var(--ease);
+  width: 100%;
+}
+.field input:focus, .field select:focus, .field textarea:focus {
+  border-color: var(--amber);
+  box-shadow: 0 0 0 3px rgba(201, 119, 46, 0.16);
+}
+.field ::placeholder { color: rgba(168, 156, 136, 0.55); }

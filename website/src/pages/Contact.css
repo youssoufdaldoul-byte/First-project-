@@ -1,0 +1,80 @@
+.contactpage { background: var(--bg); }
+
+.contactpage__grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: clamp(40px, 6vw, 90px);
+  align-items: stretch;
+}
+
+/* placeholder de carte — grille discrète sur graphite, épingle amber */
+.contactpage__map {
+  position: relative;
+  min-height: 420px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(242, 234, 217, 0.07);
+  overflow: hidden;
+  background:
+    radial-gradient(75% 60% at 55% 45%, rgba(201, 119, 46, 0.07), transparent 70%),
+    repeating-linear-gradient(0deg, transparent 0 46px, rgba(242, 234, 217, 0.045) 46px 47px),
+    repeating-linear-gradient(90deg, transparent 0 46px, rgba(242, 234, 217, 0.045) 46px 47px),
+    var(--bg-2);
+}
+.contactpage__pin {
+  position: absolute;
+  top: 45%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  text-align: center;
+}
+.contactpage__pin i {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--amber);
+  box-shadow: 0 0 0 7px rgba(201, 119, 46, 0.18), 0 0 34px rgba(201, 119, 46, 0.5);
+}
+.contactpage__pin span {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+
+.contactpage__info {
+  display: grid;
+  gap: 32px;
+  align-content: start;
+}
+.contactpage__info h4 {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.contactpage__info p, .contactpage__info a {
+  display: block;
+  color: var(--text-dim);
+  font-size: 15px;
+  line-height: 1.8;
+  transition: color 0.3s var(--ease);
+}
+.contactpage__info a:hover { color: var(--text); }
+.contactpage__access {
+  margin-top: 10px;
+  font-style: italic;
+  font-size: 14px;
+  max-width: 40ch;
+}
+
+@media (max-width: 900px) {
+  .contactpage__grid { grid-template-columns: 1fr; }
+  .contactpage__map { min-height: 320px; }
+}
