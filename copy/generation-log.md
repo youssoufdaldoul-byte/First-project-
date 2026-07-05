@@ -36,6 +36,21 @@
   nouveau job_id `d9351e66-21f0-4781-9f1d-b9767d758844`. Ancien tirage macro à plat abandonné
   (job `1aef7d17-9944-4b02-bc9c-09144a07b65a`, ne pas utiliser).
 
+## Médias committés + renommés (2026-07-05)
+- L'utilisateur a téléchargé les médias depuis Higgsfield et les a committés (branche review j5g689, noms génériques).
+- Rapatriés et renommés aux chemins canoniques sur la branche de travail :
+  hero-burger, lab-burger-cut (2e prise assemblée, patty tranché), catalog-classic-stack,
+  catalog-smoky-bacon, catalog-spicy-lab, catalog-truffle-melt, ingredients-flat (ancien macro),
+  ingredients-detail (éclaté vertical), + `assets/videos/burgerlab-scroll-background-raw.mp4`.
+- `hero-burger.png` vérifié = première frame de la vidéo. `exploded-burger-reference.png`
+  (e220371d) n'a pas été uploadé — non bloquant pour le site (la vidéo porte l'état éclaté).
+
+## Phase build — Site web (2026-07-05)
+- Site construit dans `website/` : Vite + React (JS), GSAP ScrollTrigger, Lenis, react-router.
+- Séquence scrub : 145 frames JPG (1280w, ~15 Mo) extraites de la vidéo → `website/public/sequence/`.
+- Images web optimisées (1600w + 800w JPG) → `website/public/img/`.
+- Vérifié en prod (Playwright) : hero, scrub actes 1-2, catalog, 4 pages, i18n, mobile fallback.
+
 ## Gate B — Vidéo scroll-driven (2026-07-05)
 - Fichier cible : `assets/videos/burgerlab-scroll-background-raw.mp4` (à télécharger + committer par l'utilisateur).
 - job_id : `e47d39cf-0391-4f9d-882d-d4091770cc17` · type video.

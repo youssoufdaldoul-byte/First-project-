@@ -1,0 +1,30 @@
+.experience { background: var(--bg-2); }
+
+.experience__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: clamp(40px, 6vw, 90px);
+  align-items: center;
+}
+
+.experience__text { display: grid; gap: 22px; justify-items: start; }
+
+.experience__media {
+  margin: 0;
+  display: grid;
+  gap: 14px;
+}
+.experience__media img {
+  border-radius: var(--radius);
+  box-shadow: 0 40px 80px -40px rgba(0, 0, 0, 0.8);
+}
+.experience__media figcaption {
+  font-size: var(--fs-caption);
+  color: var(--text-dim);
+  font-style: italic;
+}
+
+@media (max-width: 900px) {
+  .experience__grid { grid-template-columns: 1fr; }
+  .experience__media { order: 2; }
+}
