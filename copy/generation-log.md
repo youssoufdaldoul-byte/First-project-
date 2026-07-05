@@ -16,7 +16,7 @@
 |---|---------|-----------------|--------|--------|
 | 1 | `assets/images/hero-burger.png` | image-prompts.md §1 (assemblé) | ✅ généré (à télécharger) | `9b72e3c4-85e4-4890-ae0b-df6b54cad7f3` |
 | 2 | `assets/images/exploded-burger-reference.png` | §2 (éclaté) + réf. hero par job_id | ⏳ à générer | — |
-| 3 | `assets/images/ingredients-detail.png` | macro ingrédients (voir image-prompts) | ✅ généré (à télécharger) | `1aef7d17-9944-4b02-bc9c-09144a07b65a` |
+| 3 | `assets/images/ingredients-detail.png` | ingrédients éclatés verticaux (régénéré) | ✅ généré (à télécharger) | `d9351e66-21f0-4781-9f1d-b9767d758844` |
 | 4 | `assets/images/catalog-classic-stack.png` | base catalogue — classic stack | ✅ généré (à télécharger) | `f2b7f484-b6b7-48f3-b445-edb2512a81a4` |
 | 5 | `assets/images/catalog-smoky-bacon.png` | base catalogue — smoky bacon | ✅ généré (à télécharger) | `7b61dd37-97db-4d27-8a95-60dc18cefbb5` |
 | 6 | `assets/images/catalog-spicy-lab.png` | base catalogue — spicy lab | ✅ généré (à télécharger) | `f43406f1-8743-4961-8f9a-78e0f57c9bce` |
@@ -32,9 +32,12 @@
 - Descriptions selon brief utilisateur (burgers distincts), base visuelle commune (charcoal, warm side light, faint smoke, macro, no text/no people/no hands).
 - Récupérer une URL fraîche via `job_display(id=…)` puis `curl` vers le chemin exact (CDN à débloquer d'abord — voir section réseau).
 - Reste à générer : #2 exploded (`exploded-burger-reference.png`), à référencer le hero par job_id.
+- `ingredients-detail` régénéré en vue éclatée verticale (ingrédients séparés empilés avec espace),
+  nouveau job_id `d9351e66-21f0-4781-9f1d-b9767d758844`. Ancien tirage macro à plat abandonné
+  (job `1aef7d17-9944-4b02-bc9c-09144a07b65a`, ne pas utiliser).
 
 ## Crédits
-- Départ : 272 · Hero : −7 · Catalogue+macro (5 × −7 = −35) · **Restant : 230**
+- Départ : 272 · Hero : −7 · Catalogue+macro (5 × −7 = −35) · ingredients régénéré (−7) · **Restant : 223**
 
 ## Blocage réseau (TOUJOURS bloqué — 2026-07-04)
 - Le CDN `d8j0ntlcm91z4.cloudfront.net` est refusé par la politique d'egress.
