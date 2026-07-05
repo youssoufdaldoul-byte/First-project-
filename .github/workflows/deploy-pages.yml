@@ -2,7 +2,7 @@ name: Deploy BurgerLab to GitHub Pages
 
 on:
   push:
-    branches: [claude/cdn-testing-eya0lg, main]
+    branches: [claude/cdn-testing-eya0lg, claude/maison-prime-burger-lab-review-j5g689, main]
     paths: ['website/**', '.github/workflows/deploy-pages.yml']
   workflow_dispatch:
 
