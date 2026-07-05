@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useLang } from '../i18n/LangContext'
 import { FRAME_COUNT, preloadFrames, drawCover } from '../lib/scroll'
+import { asset } from '../lib/asset'
 import './ScrollHero.css'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -158,8 +160,8 @@ export default function ScrollHero() {
         ) : (
           <img
             className="scrollhero__fallback"
-            src="/img/hero-burger.jpg"
-            srcSet="/img/hero-burger-sm.jpg 800w, /img/hero-burger.jpg 1600w"
+            src={asset('img/hero-burger.jpg')}
+            srcSet={`${asset('img/hero-burger-sm.jpg')} 800w, ${asset('img/hero-burger.jpg')} 1600w`}
             sizes="100vw"
             alt=""
           />
@@ -186,7 +188,7 @@ export default function ScrollHero() {
             <em>{t.hero.title2}</em>
           </h1>
           <p className="scrollhero__sub">{t.hero.sub}</p>
-          <a className="btn" href="/reserver">{t.hero.cta}</a>
+          <Link className="btn" to="/reserver">{t.hero.cta}</Link>
         </div>
         <div className="scrollhero__hint" ref={scrollHintRef}>
           <span>{t.hero.scroll}</span>

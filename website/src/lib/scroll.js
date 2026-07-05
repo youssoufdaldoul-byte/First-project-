@@ -5,7 +5,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 export const FRAME_COUNT = 145
 export const frameSrc = (i) =>
-  `/sequence/frame_${String(i + 1).padStart(4, '0')}.jpg`
+  `${import.meta.env.BASE_URL}sequence/frame_${String(i + 1).padStart(4, '0')}.jpg`
 
 /* Précharge la séquence complète ; onProgress reçoit un ratio 0→1. */
 export function preloadFrames(onProgress) {

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useLang } from '../i18n/LangContext'
+import { asset } from '../lib/asset'
 import './Catalog.css'
 
 export default function Catalog() {
@@ -31,8 +32,8 @@ export default function Catalog() {
             >
               <div className="catalog__imgwrap">
                 <img
-                  src={`/img/${item.img}-sm.jpg`}
-                  srcSet={`/img/${item.img}-sm.jpg 800w, /img/${item.img}.jpg 1600w`}
+                  src={asset(`img/${item.img}-sm.jpg`)}
+                  srcSet={`${asset(`img/${item.img}-sm.jpg`)} 800w, ${asset(`img/${item.img}.jpg`)} 1600w`}
                   sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw"
                   alt={item.name}
                   loading="lazy"

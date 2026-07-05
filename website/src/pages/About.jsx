@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { revealOnScroll } from '../lib/scroll'
 import { useLang } from '../i18n/LangContext'
+import { asset } from '../lib/asset'
 import './About.css'
 
 export default function About() {
@@ -30,8 +31,8 @@ export default function About() {
         <div className="container aboutpage__grid">
           <figure className="aboutpage__media reveal">
             <img
-              src="/img/ingredients-detail.jpg"
-              srcSet="/img/ingredients-detail-sm.jpg 800w, /img/ingredients-detail.jpg 1600w"
+              src={asset('img/ingredients-detail.jpg')}
+              srcSet={`${asset('img/ingredients-detail-sm.jpg')} 800w, ${asset('img/ingredients-detail.jpg')} 1600w`}
               sizes="(max-width: 900px) 100vw, 44vw"
               alt="Vue éclatée verticale d’un burger BurgerLab, chaque couche suspendue"
               loading="lazy"

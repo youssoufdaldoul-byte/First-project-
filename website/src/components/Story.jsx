@@ -1,4 +1,5 @@
 import { useLang } from '../i18n/LangContext'
+import { asset } from '../lib/asset'
 import './Story.css'
 
 export default function Story() {
@@ -14,8 +15,8 @@ export default function Story() {
         </div>
         <figure className="story__media reveal" data-delay="0.15">
           <img
-            src="/img/ingredients-flat.jpg"
-            srcSet="/img/ingredients-flat-sm.jpg 800w, /img/ingredients-flat.jpg 1600w"
+            src={asset('img/ingredients-flat.jpg')}
+            srcSet={`${asset('img/ingredients-flat-sm.jpg')} 800w, ${asset('img/ingredients-flat.jpg')} 1600w`}
             sizes="(max-width: 900px) 100vw, 46vw"
             alt="Ingrédients choisis de BurgerLab, disposés sur pierre sombre"
             loading="lazy"
